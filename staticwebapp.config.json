@@ -1,16 +1,19 @@
 {
     "responseOverrides": {
         "400": {
+            "statusCode": 400,
             "rewrite": "/index.html"
         },
         "401": {
-            "statusCode": 302,
+            "statusCode": 401,
             "redirect": "/index.html"
         },
         "403": {
+            "statusCode": 403,
             "rewrite": "/index.html"
         },
         "404": {
+            "statusCode": 404,
             "rewrite": "/index.html"
         }
     }
