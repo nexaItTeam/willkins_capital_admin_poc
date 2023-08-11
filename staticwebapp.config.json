@@ -1,5 +1,0 @@
-{
-    "navigationFallback": {
-        "rewrite": "dist/nexa_admin/index.html"
-    }
-}
