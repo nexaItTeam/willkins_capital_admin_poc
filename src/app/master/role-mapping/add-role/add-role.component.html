@@ -1,0 +1,57 @@
+<app-loader></app-loader>
+<div mat-dialog-title>
+    <h1> RoleFunction Mapping</h1>
+</div>
+<form [formGroup]="roleMapForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content>
+        <div >
+           <mat-form-field appearance="outline">
+                <mat-label>Full name</mat-label>
+                <textarea matInput
+                placeholder="Ex. john wilson"
+                formControlName="full_name"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Ex. 2" formControlName="user_email">
+            </mat-form-field>
+        </div>
+
+        <div >
+           <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput  formControlName="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>contact_no</mat-label>
+                <input matInput  formControlName="contact_no">
+                
+            </mat-form-field>
+        </div>
+       <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>User Role</mat-label>
+            <input type="text"
+                   placeholder="Pick one"
+                   aria-label="Number"
+                   matInput
+                   formControlName="user_type"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of userRoleList " [value]="option.value">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+       </div>
+       
+    </div>
+    <div mat-dialog-actions >
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
